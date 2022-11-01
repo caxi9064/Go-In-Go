@@ -5,5 +5,5 @@ import (
 )
 
 func main(){
-	GUI.GUI();
+	GUI.CreateGrid();
 }
