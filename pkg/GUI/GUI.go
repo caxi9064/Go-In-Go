@@ -7,7 +7,15 @@ import (
 	"fyne.io/fyne/v2/canvas"
 	"fyne.io/fyne/v2/container"
 	//"fyne.io/fyne/v2/position"
+	"fyne.io/fyne/v2/data/binding"
 )
+
+type GUI struct { // How our GUI will be represented
+	grid *board
+	
+
+	blackTurn binding.Bool
+}
 
 func CreateGrid() {
 	/*
