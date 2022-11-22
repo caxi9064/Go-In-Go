@@ -12,3 +12,7 @@ func (m *Move) Pos1() Point {
 func (m *Move) Pos2() Point {
 	return m.pos2
 }
+
+func (m *Move) IsLegal() bool {
+	return false
+}

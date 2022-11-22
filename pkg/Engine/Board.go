@@ -1,5 +1,6 @@
 package Engine
 
+
 type Board struct {
     dimension int		// Dimension of board, i.e. 19x19
 	pieces [][]uint8	// Location of pieces

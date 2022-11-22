@@ -1,0 +1,8 @@
+.grid {
+    display: grid;
+    background: url("./board19x19.png") no-repeat;
+    height: 600px;
+    width: 600px;
+    grid-template-columns: repeat(19,1fr);
+    grid-gap: 12px;
+}
