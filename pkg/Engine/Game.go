@@ -1,7 +1,7 @@
 package Engine
 
 import (
-	//"github.com/gin-gonic/gin"
+	"fmt"
 
 )
 
@@ -11,14 +11,23 @@ type Game struct {     // Main board, where pieces will live.
 	whiteScore int
 }
 
-type Point uint8 // Where pieces are places on the Go board.
 
-func CreateGame(dim int) *Game {
+
+func CreateGame() *Game {
+	fmt.Println("Welcome to Go in Go!")
+	fmt.Println("Input number for board size (X by X): ")
+	var input int
+	fmt.Scanln(&input)
+
 	return &Game{
-		board: NewBoard(dim),
+		board: NewBoard(input),
 	}
 }
 
 func (g *Game) PerformMove(m *Move) {
-	return 
+	if m.color == white {
+		g.board.pieces[m.xpos][m.ypos] = white
+	}else{
+		g.board.pieces[m.xpos][m.ypos] = black
+	}
 }
