@@ -5,16 +5,17 @@ import (
 )
 
 type Board struct {
-    dimension int		// Dimension of board, i.e. 19x19
-	pieces [][]Color	// Location of pieces
-    moves [][]*Move     // Played moves so far.
+    dimension int			// Dimension of board, i.e. 19x19
+	pieces [][]Color		// Location of pieces
+	pastPosition [][]Color 	// To avoid the Ko rule.
+    moves []*Move     		// Played moves so far.
 }
 
 func NewBoard(dim int) *Board {
 	return &Board{
 		dimension : dim,
 		pieces: Make2D[Color](dim, dim),
-        moves: Make2D[*Move](dim,dim),
+        moves: make([]*Move, dim), // A slice of moves
 	}
 }
 
@@ -22,7 +23,7 @@ func (b *Board) GetPieces() [][]Color {
     return b.pieces
 }
 
-func (b *Board) GetMoves() [][]*Move {
+func (b *Board) GetMoves() []*Move {
     return b.moves
 }
 
@@ -49,11 +50,29 @@ func (b *Board) DrawBoard() {
 		}
 		for j := 0; j < b.dimension; j++ {
 			if b.pieces[i][j] == white {
-				fmt.Print(" o ")
+				fmt.Print(" ○ ")
 			}else if b.pieces[i][j] == black{
-				fmt.Print(" * ")
+				fmt.Print(" ● ")
 			}else{
 				fmt.Print(" + ")
+			}
+		}
+	}
+}
+
+func (b *Board) IsLegalMove(m *Move) bool {
+	// Checks to see if the move is legal.
+	if b.pieces
+	return false
+}
+
+func (b *Board) Capture(c Color){
+	// Removes captured pieces of the opposite color from the board
+	oppColor := GetOppositeColor(c)
+	for i,row := range b.pieces {
+		for j,val := range row {
+			if val == oppColor {
+				fmt.Printf("Black moved: %d, %d", i, j)
 			}
 		}
 	}

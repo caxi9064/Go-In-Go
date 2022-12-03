@@ -1,10 +1,10 @@
 package Engine
 
 type Point uint8 	// Where pieces are places on the Go board.
-type Color uint8 	// Represents the color of the piece, 0 is white 1 is black.
+type Color uint8 	// Represents the color of the piece, 1 is white 2 is black.
 
 const (
-	white Color = iota
+	white Color = iota + 1
 	black
 )
 
