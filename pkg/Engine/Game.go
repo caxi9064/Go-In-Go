@@ -5,7 +5,7 @@ import (
 
 )
 
-type Game struct {     // Main board, where pieces will live.
+type Game struct {     
 	board *Board
 	blackScore int
 	whiteScore int
@@ -24,10 +24,3 @@ func CreateGame() *Game {
 	}
 }
 
-func (g *Game) PerformMove(m *Move) {
-	if m.color == white {
-		g.board.pieces[m.xpos][m.ypos] = white
-	}else{
-		g.board.pieces[m.xpos][m.ypos] = black
-	}
-}

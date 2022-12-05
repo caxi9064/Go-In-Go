@@ -1,5 +1,10 @@
 package Engine
 
+/*
+ *	Factory pattern to handle the creation of moves.
+ *
+ */
+
 import (
 	//"fmt"
 )

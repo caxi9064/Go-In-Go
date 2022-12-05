@@ -60,9 +60,48 @@ func (b *Board) DrawBoard() {
 	}
 }
 
+func (b *Board) PromptMove(c Color) {
+	// Prompts and performs a desired move.
+	// Draws the board, gets user input, and returns the desired move.
+	fmt.Println(EnumString(c) + " to play!")
+	b.DrawBoard()
+
+	fmt.Println("\nEnter your move coords separated by a space:")
+	var xpos Point = 0
+	var ypos Point = 0
+	_, errorf := fmt.Scanln(&ypos, &xpos)
+	if errorf != nil {
+		fmt.Printf("Input could not be read: %v\n", errorf)
+	}
+	
+	move, err := getMove(xpos, ypos, c)
+	if err != nil {
+		fmt.Printf("Move could not be played: %v\n", err)
+	}
+
+	movecmd := &MoveCommand{
+		move: move,
+		board: b,
+	}
+
+	mover := &Invoker{
+		command: movecmd,
+	}
+
+	mover.command.execute()
+	fmt.Printf("%s has played the move %d, %d.\n", EnumString(c), ypos, xpos)
+}
+
+func (b *Board) PerformMove(m *Move) {
+	if m.color == white {
+		b.pieces[m.xpos][m.ypos] = white
+	}else{
+		b.pieces[m.xpos][m.ypos] = black
+	}
+}
+
 func (b *Board) IsLegalMove(m *Move) bool {
 	// Checks to see if the move is legal.
-	if b.pieces
 	return false
 }
 
