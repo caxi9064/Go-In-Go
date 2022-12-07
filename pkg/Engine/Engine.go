@@ -45,6 +45,15 @@ func (e *Engine) GameLoop() {
 	fmt.Printf("\n")
 	//edit naming
 
+	//STRATEGY PATTERN
+	add := Operation{Addition{}}
+	var i int = add.Operate(3, 5) // 8
+	fmt.Println(i)
+
+	mult := Operation{Multiplication{}}
+	var j int = mult.Operate(3, 5) // 15
+	fmt.Println(j)
+
 	for {
 		if counter % 2 == 1 {
 			c = black
