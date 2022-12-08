@@ -4,8 +4,6 @@ import (
    //"fmt"
 )
 
-// TO:DO rename functions 
-
 type piece interface { //component
 	getPieceStats() string
 }
@@ -23,13 +21,11 @@ func (p *blackPiece) getPieceStats() string { // getPieceColor
 	return "Black: "
 }
 
-
 type displayBoard struct { //concrete decorator
 	piece piece
 }
 func (c *displayBoard) getPieceStats() string {
 	pieceColor := c.piece.getPieceStats()
-	//to do:
 	return pieceColor + "7"
 }
 type gameStats struct {
@@ -37,6 +33,5 @@ type gameStats struct {
 }
 func (c *gameStats) getPieceStats() string { 
 	pieceColor := c.piece.getPieceStats()
-	//to do:
 	return pieceColor + "10"
 }

@@ -11,12 +11,12 @@ func (o *Operation) Operate(leftValue, rightValue int) int {
 	return o.Operator.Apply(leftValue, rightValue)
 }
 
-type Addition struct{}
-func (Addition) Apply(lval, rval int) int {
+type AddPieces struct{}
+func (AddPieces) Apply(lval, rval int) int {
 	return lval + rval
 }
 
-type Multiplication struct{}
-func (Multiplication) Apply(lval, rval int) int {
-	return lval * rval
+type SubtractPieces struct{}
+func (SubtractPieces) Apply(lval, rval int) int {
+	return lval - rval
 }

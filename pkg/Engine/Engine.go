@@ -21,39 +21,35 @@ func (e *Engine) GameLoop() {
 	//DECORATOR PATTERN
 	blackPiece := &blackPiece{}
 
-	//Add cheese topping
 	blackPieceWithGameStats:= &gameStats{
 		piece: blackPiece,
 	}
 
-	//Add tomato topping
-	blackPieceWithGameStatsAndDisplay := &displayBoard{
-		piece: blackPieceWithGameStats,
-	}
-
-	fmt.Printf(blackPieceWithGameStatsAndDisplay.getPieceStats())
+	fmt.Printf("Player Stats\n")
+	fmt.Printf(blackPieceWithGameStats.getPieceStats())
 	fmt.Printf("\n")
 
 	whitePiece := &whitePiece{}
-
-	//Add cheese topping
 	whitePieceWithGameStats := &gameStats{
 		piece: whitePiece,
 	}
 
 	fmt.Printf(whitePieceWithGameStats.getPieceStats())
 	fmt.Printf("\n")
-	//edit naming
 
 	//STRATEGY PATTERN
-	add := Operation{Addition{}}
-	var i int = add.Operate(3, 5) // 8
-	fmt.Println(i)
+	add := Operation{AddPieces{}}
+	var i int = add.Operate(1, 3) // 8
+	fmt.Println("Pieces Captured: ", i)
 
-	mult := Operation{Multiplication{}}
-	var j int = mult.Operate(3, 5) // 15
-	fmt.Println(j)
+	subt := Operation{SubtractPieces{}}
+	var j int = subt.Operate(10, 3) // 15
+	fmt.Println("Pieces Left: ", j)
+	fmt.Printf("\n")
+	fmt.Printf("--------------------------------\n")
 
+
+	//change for loop to while 
 	for {
 		if counter % 2 == 1 {
 			c = black
