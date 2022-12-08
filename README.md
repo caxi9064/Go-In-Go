@@ -1,3 +1,7 @@
+Names: Catherine Xiao, John Aldrete
+Language Version: Go 1.19.3
+Instructions: 
+
 # Go-in-Go
 The oldest board game Go, written in Go. 
 
